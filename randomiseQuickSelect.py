@@ -2,13 +2,16 @@ import random
 
 def partition(A, left, right, pivotIndex):
     pivotValue = A[pivotIndex]
-    A[pivotIndex], A[right] = A[right], A[pivotIndex]  # Move pivot to end
+    #Move pivot to end, (swaps the pivot with the last element)
+    A[pivotIndex], A[right] = A[right], A[pivotIndex] 
     storeIndex = left
     for i in range(left, right):
+        #Move all elements smaller than pivot to the left
         if A[i] < pivotValue:
             A[storeIndex], A[i] = A[i], A[storeIndex]
             storeIndex += 1
-    A[right], A[storeIndex] = A[storeIndex], A[right]  # Move pivot to its final place
+    # Move pivot to its final place (swaps the pivot with the last element)
+    A[right], A[storeIndex] = A[storeIndex], A[right]  
     return storeIndex
 
 def randomiseQuickSelect(A, i, left, right):
