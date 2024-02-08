@@ -415,8 +415,29 @@ class Node:
         Should run on the node and return the height of the node.
         :return integer:
         """
-        ...
 
+        curretNode = self
+
+        
+        if curretNode.left is not None:
+            heightLeft = curretNode.right.get_height()
+            return(heightLeft)
+        
+        elif curretNode.right is not None:
+            heightRight += curretNode.right.get_height()
+            return (heightRight)
+        
+        return max(heightLeft, heightRight) + 1
+        
+
+    def trackHeight(height):
+        """_summary_
+
+        Args:
+            height (_type_): _description_
+        """
+        
+        
     def unbalanced(self):
         """
         Should run on the node and return True if the subtree rooted at the node is unbalance, return False if
